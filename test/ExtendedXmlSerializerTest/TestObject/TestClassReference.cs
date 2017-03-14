@@ -20,60 +20,82 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace ExtendedXmlSerialization.Test.TestObject
 {
     public class TestClassReferenceWithDictionary
     {
-        public IReference Parent { get; set; }
+		[XmlElement]
+		public IReference Parent { get; set; }
 
-        public Dictionary<int, IReference> All { get; set; }
+		[XmlElement]
+		public Dictionary<int, IReference> All { get; set; }
     }
 
     public class TestClassReferenceWithList
     {
-        public IReference Parent { get; set; }
+		[XmlElement]
+		public IReference Parent { get; set; }
 
-        public List<IReference> All { get; set; }
+		[XmlElement]
+		public List<IReference> All { get; set; }
     }
     public interface IReference
     {
-        int Id { get; set; }
+		[XmlElement]
+		int Id { get; set; }
     }
     public class TestClassReference : IReference
     {
-        public int Id { get; set; }
-        public IReference CyclicReference { get; set; }
-        public IReference ObjectA { get; set; }
+		[XmlElement]
+		public int Id { get; set; }
+		[XmlElement]
+		public IReference CyclicReference { get; set; }
+		[XmlElement]
+		public IReference ObjectA { get; set; }
 
-        public IReference ReferenceToObjectA { get; set; }
+		[XmlElement]
+		public IReference ReferenceToObjectA { get; set; }
 
-        public List<IReference> Lists { get; set; }
+		[XmlElement]
+		public List<IReference> Lists { get; set; }
     }
 
     public class TestClassConcreteReferenceWithDictionary
     {
-        public TestClassConcreteReference Parent { get; set; }
+		[XmlElement]
+		public TestClassConcreteReference Parent { get; set; }
 
-        public Dictionary<int, TestClassConcreteReference> All { get; set; }
+		[XmlElement]
+		public Dictionary<int, TestClassConcreteReference> All { get; set; }
     }
 
 
     public class TestClassConcreteReferenceWithList
     {
-        public TestClassConcreteReference Parent { get; set; }
+		[XmlElement]
+		public TestClassConcreteReference Parent { get; set; }
 
-        public List<TestClassConcreteReference> All { get; set; }
+		[XmlElement]
+		public List<TestClassConcreteReference> All { get; set; }
     }
 
     public class TestClassConcreteReference : IReference
     {
-        public int Id { get; set; }
-        public TestClassConcreteReference CyclicReference { get; set; }
-        public TestClassConcreteReference ObjectA { get; set; }
+		[XmlElement]
+		public int Id { get; set; }
 
-        public TestClassConcreteReference ReferenceToObjectA { get; set; }
+		[XmlElement]
+		public TestClassConcreteReference CyclicReference { get; set; }
 
-        public List<TestClassConcreteReference> Lists { get; set; }
+		[XmlElement]
+		public TestClassConcreteReference ObjectA { get; set; }
+
+		[XmlElement]
+		public TestClassConcreteReference ReferenceToObjectA { get; set; }
+
+		[XmlElement]
+		public List<TestClassConcreteReference> Lists { get; set; }
     }
 }

@@ -20,13 +20,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 using System;
+using System.Xml.Serialization;
 
 namespace ExtendedXmlSerialization.Test.TestObject
 {
     public class TestClassGeneric<T>
     {
-        public T GenericProp { get; set; }
-        public String Normal { get; set; }
+		[XmlElement]
+		public T GenericProp { get; set; }
+
+		[XmlElement]
+		public String Normal { get; set; }
 
         public void Init(T genericValue)
         {
@@ -37,9 +41,12 @@ namespace ExtendedXmlSerialization.Test.TestObject
 
     public class TestClassGenericTwo<T, K>
     {
-        public T GenericProp { get; set; }
-        public K GenericProp2 { get; set; }
-        public String Normal { get; set; }
+		[XmlElement]
+		public T GenericProp { get; set; }
+		[XmlElement]
+		public K GenericProp2 { get; set; }
+		[XmlElement]
+		public String Normal { get; set; }
 
         public void Init(T genericValue, K genericValue2)
         {
@@ -51,10 +58,14 @@ namespace ExtendedXmlSerialization.Test.TestObject
 
     public class TestClassGenericThree<T, TK, TL>
     {
-        public T GenericProp { get; set; }
-        public TK GenericProp2 { get; set; }
-        public TL GenericProp3 { get; set; }
-        public String Normal { get; set; }
+		[XmlElement]
+		public T GenericProp { get; set; }
+		[XmlElement]
+		public TK GenericProp2 { get; set; }
+		[XmlElement]
+		public TL GenericProp3 { get; set; }
+		[XmlElement]
+		public String Normal { get; set; }
 
         public void Init(T genericValue, TK genericValue2, TL genericValue3)
         {
@@ -67,6 +78,7 @@ namespace ExtendedXmlSerialization.Test.TestObject
 
     public class TestClassPropGeneric
     {
-        public TestClassGenericThree<string, int, decimal> PropGenric { get; set; }
+		[XmlElement]
+		public TestClassGenericThree<string, int, decimal> PropGenric { get; set; }
     }
 }

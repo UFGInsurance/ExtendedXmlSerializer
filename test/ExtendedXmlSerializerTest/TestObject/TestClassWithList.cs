@@ -20,13 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace ExtendedXmlSerialization.Test.TestObject
 {
     public class TestClassFromList
     {
-        public string PropString { get; set; }
-        public int PropInt { get; set; }
+		[XmlElement]
+		public string PropString { get; set; }
+		[XmlElement]
+		public int PropInt { get; set; }
     }
     public class TestClassWithList
     {
@@ -36,8 +39,10 @@ namespace ExtendedXmlSerialization.Test.TestObject
             ListObj = new List<TestClassFromList>{new TestClassFromList{PropString = "s1", PropInt = 1}, 
                                                   new TestClassFromList{PropString = "s2", PropInt = 2}};
         }
-        
-        public List<string> ListStr { get; set; }
+
+		[XmlElement]
+		public List<string> ListStr { get; set; }
+		[XmlElement]
         public List<TestClassFromList> ListObj { get; set; }
     }
 }

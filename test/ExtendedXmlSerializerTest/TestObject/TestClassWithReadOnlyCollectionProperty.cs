@@ -21,11 +21,13 @@
 // SOFTWARE.
 
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace ExtendedXmlSerialization.Test.TestObject
 {
     public sealed class TestClassWithReadOnlyCollectionProperty
     {
-        public IList<TestClassPrimitiveTypes> Items { get; } = new List<TestClassPrimitiveTypes>();
+		[XmlElement]
+		public IList<TestClassPrimitiveTypes> Items { get; } = new List<TestClassPrimitiveTypes>();
     }
 }

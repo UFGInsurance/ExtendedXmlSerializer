@@ -23,6 +23,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace ExtendedXmlSerialization.Test.TestObject
 {
@@ -30,12 +31,16 @@ namespace ExtendedXmlSerialization.Test.TestObject
     {
         private string _onlyGetProperty;
 
-        public string NormalProp { get; set; }
+		[XmlElement]
+		public string NormalProp { get; set; }
         public string OnlyGetProp => _onlyGetProperty;
         public static string StaticProp { get; set; }
-        public virtual string VirtualProp { get; set; }
 
-        public string NormalField;
+		[XmlElement]
+		public virtual string VirtualProp { get; set; }
+
+		[XmlElement]
+		public string NormalField;
         public readonly string ReadonlyField = "6";
         public const string ConstField = "7";
         public static string StaticField;

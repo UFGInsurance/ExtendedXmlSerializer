@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace ExtendedXmlSerialization.Test.TestObject
 {
     public class TestClassWithEncryptedData
     {
-        public string Name { get; set; }
-        public string Password { get; set; }
-        public decimal Salary { get; set; }
+		[XmlElement]
+		public string Name { get; set; }
+		[XmlElement]
+		public string Password { get; set; }
+		[XmlElement]
+		public decimal Salary { get; set; }
     }
 
     public class TestClassWithEncryptedDataConfig : ExtendedXmlSerializerConfig<TestClassWithEncryptedData>

@@ -26,7 +26,8 @@ namespace ExtendedXmlSerialization.Test.TestObject
 {
     public class TestClassInheritanceBase
     {
-        public int Id { get; set; }
+		[XmlElement]
+		public int Id { get; set; }
 
         public virtual void Init()
         {
@@ -35,7 +36,8 @@ namespace ExtendedXmlSerialization.Test.TestObject
     }
     public class TestClassInheritance:TestClassInheritanceBase
     {
-        public int Id2 { get; set; }
+		[XmlElement]
+		public int Id2 { get; set; }
         public override void Init()
         {
             Id = 2;
@@ -71,7 +73,9 @@ namespace ExtendedXmlSerialization.Test.TestObject
 
     public class TestClassInterfaceInheritanceWithOrder : IInterfaceWithOrder
     {
-        public int Id2 { get; set; }
-        public int Id { get; set; }
+		[XmlElement]
+		public int Id2 { get; set; }
+		[XmlElement]
+		public int Id { get; set; }
     }
 }

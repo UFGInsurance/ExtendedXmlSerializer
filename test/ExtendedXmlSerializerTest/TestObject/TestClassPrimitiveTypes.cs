@@ -20,6 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 using System;
+using System.Xml.Serialization;
 
 namespace ExtendedXmlSerialization.Test.TestObject
 {
@@ -65,35 +66,86 @@ namespace ExtendedXmlSerialization.Test.TestObject
             PropChar = 'g';
         }
 
+		[XmlElement]
         public string PropString { get; set; }
-        public int PropInt { get; set; }
-        public uint PropuInt { get; set; }
-        public decimal PropDecimal { get; set; }
-        public decimal PropDecimalMinValue { get; set; }
-        public decimal PropDecimalMaxValue { get; set; }
 
-        public float PropFloat { get; set; }
-        public float PropFloatNaN { get; set; }
-        public float PropFloatPositiveInfinity { get; set; }
-        public float PropFloatNegativeInfinity { get; set; }
-        public float PropFloatMinValue { get; set; }
-        public float PropFloatMaxValue { get; set; }
+		[XmlElement]
+		public int PropInt { get; set; }
 
-        public double PropDouble { get; set; }
-        public double PropDoubleNaN { get; set; }
-        public double PropDoublePositiveInfinity { get; set; }
-        public double PropDoubleNegativeInfinity { get; set; }
-        public double PropDoubleMinValue { get; set; }
-        public double PropDoubleMaxValue { get; set; }
+		[XmlElement]
+		public uint PropuInt { get; set; }
 
-        public TestEnum PropEnum { get; set; }
-        public long PropLong { get; set; }
-        public ulong PropUlong { get; set; }
-        public short PropShort { get; set; }
-        public ushort PropUshort { get; set; }
-        public DateTime PropDateTime { get; set; }
-        public byte PropByte { get; set; }
-        public sbyte PropSbyte { get; set; }
-        public char PropChar { get; set; }
+		[XmlElement]
+		public decimal PropDecimal { get; set; }
+
+		[XmlElement]
+		public decimal PropDecimalMinValue { get; set; }
+
+		[XmlElement]
+		public decimal PropDecimalMaxValue { get; set; }
+
+		[XmlElement]
+		public float PropFloat { get; set; }
+
+		[XmlElement]
+		public float PropFloatNaN { get; set; }
+
+		[XmlElement]
+		public float PropFloatPositiveInfinity { get; set; }
+
+		[XmlElement]
+		public float PropFloatNegativeInfinity { get; set; }
+
+		[XmlElement]
+		public float PropFloatMinValue { get; set; }
+
+		[XmlElement]
+		public float PropFloatMaxValue { get; set; }
+
+		[XmlElement]
+		public double PropDouble { get; set; }
+
+		[XmlElement]
+		public double PropDoubleNaN { get; set; }
+
+		[XmlElement]
+		public double PropDoublePositiveInfinity { get; set; }
+
+		[XmlElement]
+		public double PropDoubleNegativeInfinity { get; set; }
+
+		[XmlElement]
+		public double PropDoubleMinValue { get; set; }
+
+		[XmlElement]
+		public double PropDoubleMaxValue { get; set; }
+
+		[XmlElement]
+
+		public TestEnum PropEnum { get; set; }
+
+		[XmlElement]
+		public long PropLong { get; set; }
+
+		[XmlElement]
+		public ulong PropUlong { get; set; }
+
+		[XmlElement]
+		public short PropShort { get; set; }
+
+		[XmlElement]
+		public ushort PropUshort { get; set; }
+
+		[XmlElement]
+		public DateTime PropDateTime { get; set; }
+
+		[XmlElement]
+		public byte PropByte { get; set; }
+
+		[XmlElement]
+		public sbyte PropSbyte { get; set; }
+
+		[XmlElement]
+		public char PropChar { get; set; }
     }
 }

@@ -20,6 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 using System;
+using System.Xml.Serialization;
 
 namespace ExtendedXmlSerialization.Test.TestObject
 {
@@ -29,6 +30,7 @@ namespace ExtendedXmlSerialization.Test.TestObject
         {
             TimeSpan = TimeSpan.FromMilliseconds(1561);
         }
-        public TimeSpan TimeSpan { get; set; }
+		[XmlElement]
+		public TimeSpan TimeSpan { get; set; }
     }
 }

@@ -20,13 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace ExtendedXmlSerialization.Test.TestObject
 {
     public class TestClassFromHashSet
     {
-        public string PropString { get; set; }
-        public int PropInt { get; set; }
+		[XmlElement]
+		public string PropString { get; set; }
+		[XmlElement]
+		public int PropInt { get; set; }
     }
 
     public class TestClassWithHashSet
@@ -41,7 +44,9 @@ namespace ExtendedXmlSerialization.Test.TestObject
             };
         }
 
-        public HashSet<string> ListStr { get; set; }
-        public HashSet<TestClassFromList> ListObj { get; set; }
+		[XmlElement]
+		public HashSet<string> ListStr { get; set; }
+		[XmlElement]
+		public HashSet<TestClassFromList> ListObj { get; set; }
     }
 }

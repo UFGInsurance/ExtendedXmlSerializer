@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using ExtendedXmlSerialization.Test.TestObject;
 using ExtendedXmlSerialization.Test.TestObjectConfigs;
 using Xunit;
@@ -13,7 +14,8 @@ namespace ExtendedXmlSerialization.Test
     {
         public class TestClass
         {
-            public Dictionary<int, string> Dictionary { get; set; }
+			[XmlElement]
+			public Dictionary<int, string> Dictionary { get; set; }
         }
         [Fact]
         public void DictionaryOfIntAndString()

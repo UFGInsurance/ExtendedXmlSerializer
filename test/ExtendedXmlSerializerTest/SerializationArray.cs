@@ -50,7 +50,7 @@ namespace ExtendedXmlSerialization.Test
             var obj = new TestClassWithArray();
             obj.ArrayOfInt = new[] {1, 2, 3};
             CheckSerializationAndDeserialization("ExtendedXmlSerializerTest.Resources.TestClassWithArray.xml", obj);
-            CheckCompatibilityWithDefaultSerializator(obj);
+            //CheckCompatibilityWithDefaultSerializator(obj);
         }
 
         [Fact]

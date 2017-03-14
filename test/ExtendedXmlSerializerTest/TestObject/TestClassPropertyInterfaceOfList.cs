@@ -21,6 +21,7 @@
 // SOFTWARE.
 
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace ExtendedXmlSerialization.Test.TestObject
 {
@@ -32,9 +33,12 @@ namespace ExtendedXmlSerialization.Test.TestObject
             Set = new HashSet<string> {"Item1"};
             Dictionary = new Dictionary<string, string> {{"Key", "Value"}};
         }
-        public IList<string> List { get; set; }
-        public IDictionary<string, string> Dictionary { get; set; }
+		[XmlElement]
+		public IList<string> List { get; set; }
+		[XmlElement]
+		public IDictionary<string, string> Dictionary { get; set; }
 
-        public ISet<string> Set { get; set; }
+		[XmlElement]
+		public ISet<string> Set { get; set; }
     }
 }

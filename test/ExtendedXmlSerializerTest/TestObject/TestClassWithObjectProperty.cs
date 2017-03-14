@@ -1,7 +1,10 @@
-﻿namespace ExtendedXmlSerialization.Test.TestObject
+﻿using System.Xml.Serialization;
+
+namespace ExtendedXmlSerialization.Test.TestObject
 {
     public class TestClassWithObjectProperty
     {
-        public object TestProperty { get; set; }
+		[XmlElement]
+		public object TestProperty { get; set; }
     }
 }

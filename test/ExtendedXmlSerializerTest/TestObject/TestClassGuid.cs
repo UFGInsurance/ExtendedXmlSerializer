@@ -20,6 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 using System;
+using System.Xml.Serialization;
 
 namespace ExtendedXmlSerialization.Test.TestObject
 {
@@ -30,6 +31,7 @@ namespace ExtendedXmlSerialization.Test.TestObject
             Guid = new Guid("7db85a35-1f66-4e5c-9c4a-33a937a9258b");
         }
 
-        public Guid Guid { get; set; }
+		[XmlElement(ElementName ="DaGuid")]
+		public Guid Guid { get; set; }
     }
 }

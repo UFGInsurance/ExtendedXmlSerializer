@@ -19,20 +19,25 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
+using System.Xml.Serialization;
+
 namespace ExtendedXmlSerialization.Test.TestObject
 {
     public class TestClassInheritanceWithMigrationsBase
     {
-        public int ChangedProperty { get; set; }
+		[XmlElement]
+		public int ChangedProperty { get; set; }
     }
 
     public class TestClassInheritanceWithMigrationsA : TestClassInheritanceWithMigrationsBase
     {
-        public int OtherChangedProperty { get; set; }
+		[XmlElement]
+		public int OtherChangedProperty { get; set; }
     }
 
     public class TestClassInheritanceWithMigrationsB : TestClassInheritanceWithMigrationsBase
     {
-        public int ProprtyWithoutChanges { get; set; }
+		[XmlElement]
+		public int ProprtyWithoutChanges { get; set; }
     }
 }

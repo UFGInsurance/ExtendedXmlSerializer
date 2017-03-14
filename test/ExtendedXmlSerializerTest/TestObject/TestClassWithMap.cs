@@ -19,12 +19,16 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
+using System.Xml.Serialization;
+
 namespace ExtendedXmlSerialization.Test.TestObject
 {
    public class TestClassMapFromPrimitive
    {
-       public string Wezel1 { get; set; }
-       public int Wartosc { get; set; }
+		[XmlElement]
+		public string Wezel1 { get; set; }
+		[XmlElement]
+		public int Wartosc { get; set; }
    }
 
     public class TestClassWithMap
@@ -36,8 +40,11 @@ namespace ExtendedXmlSerialization.Test.TestObject
             PropClass = new TestClassMapFromPrimitive {Wartosc = 12, Wezel1 = "WartoscWezlas"};
         }
 
-        public string ZmianaWartosci { get; set; }
-        public string NowyWezel { get; set; }
-        public TestClassMapFromPrimitive PropClass { get; set; }
+		[XmlElement]
+		public string ZmianaWartosci { get; set; }
+		[XmlElement]
+		public string NowyWezel { get; set; }
+		[XmlElement]
+		public TestClassMapFromPrimitive PropClass { get; set; }
     }
 }

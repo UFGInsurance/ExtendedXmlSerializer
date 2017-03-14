@@ -24,5 +24,5 @@ using System.Collections.ObjectModel;
 
 namespace ExtendedXmlSerialization.Test.TestObject
 {
-    public class TestClassCollection : Collection<TestClassPrimitiveTypes> {}
+	public class TestClassCollection : Collection<TestClassPrimitiveTypes> {}
 }

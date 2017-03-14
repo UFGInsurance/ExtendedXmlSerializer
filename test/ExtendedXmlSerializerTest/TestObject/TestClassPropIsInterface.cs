@@ -19,22 +19,28 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
+using System.Xml.Serialization;
+
 namespace ExtendedXmlSerialization.Test.TestObject
 {
     public interface ITestInterface
     {
-        string PropFromInterface { get; set; }
+		[XmlElement]
+		string PropFromInterface { get; set; }
     }
 
     public class TestClassInheritInterface1 : ITestInterface
     {
-        public string PropFromInterface { get; set; }
+		[XmlElement]
+		public string PropFromInterface { get; set; }
     }
 
     public class TestClassInheritInterface2 : ITestInterface
     {
-        public string PropFromInterface { get; set; }
-        public string PropFromClass { get; set; }
+		[XmlElement]
+		public string PropFromInterface { get; set; }
+		[XmlElement]
+		public string PropFromClass { get; set; }
     }
 
     public class TestClassPropIsInterface 
@@ -45,7 +51,9 @@ namespace ExtendedXmlSerialization.Test.TestObject
             PropInter2 = new TestClassInheritInterface2 { PropFromInterface = "PropInter2", PropFromClass = "PropClass1"};
         }
 
-        public ITestInterface PropInter1 { get; set; }
-        public ITestInterface PropInter2 { get; set; }
+		[XmlElement]
+		public ITestInterface PropInter1 { get; set; }
+		[XmlElement]
+		public ITestInterface PropInter2 { get; set; }
     }
 }

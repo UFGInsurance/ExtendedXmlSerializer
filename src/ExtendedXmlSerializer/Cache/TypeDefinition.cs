@@ -123,11 +123,11 @@ namespace ExtendedXmlSerialization.Cache
                         continue;
                     }
 
-                    bool ignore = propertyInfo.GetCustomAttributes(false).Any(a => a is XmlIgnoreAttribute);
-                    if (ignore)
-                    {
-                        continue;
-                    }
+ 					bool include = propertyInfo.GetCustomAttributes(false).Any(a => a is XmlElementAttribute);
+					if(!include)
+					{
+						continue;
+					}
 
                     var name = string.Empty;
                     order = -1;

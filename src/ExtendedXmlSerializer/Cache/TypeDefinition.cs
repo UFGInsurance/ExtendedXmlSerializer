@@ -20,6 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 using System;
+using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -116,15 +117,12 @@ namespace ExtendedXmlSerialization.Cache
                 {
                     var elementType = ElementTypeLocator.Default.Locate( propertyInfo.PropertyType );
                     var getMethod = propertyInfo.GetGetMethod(true);
-                    if (!propertyInfo.CanRead || getMethod.IsStatic || !getMethod.IsPublic ||
-                       !propertyInfo.CanWrite && elementType == null || ( !propertyInfo.GetSetMethod(true)?.IsPublic ?? false ) ||
-                        propertyInfo.GetIndexParameters().Length > 0)
+                    if (SkipPropertyInfo(propertyInfo, getMethod, elementType))
                     {
                         continue;
                     }
 
- 					bool include = propertyInfo.GetCustomAttributes(false).Any(a => a is XmlElementAttribute);
-					if(!include)
+					if(!IncludeProperty(propertyInfo))
 					{
 						continue;
 					}
@@ -202,6 +200,29 @@ namespace ExtendedXmlSerialization.Cache
             }
             return result;
         }
+
+	    private static bool SkipPropertyInfo(PropertyInfo propertyInfo, MethodInfo getMethod, Type elementType)
+	    {
+		    return !propertyInfo.CanRead || getMethod.IsStatic || !getMethod.IsPublic ||
+		           !propertyInfo.CanWrite && elementType == null || ( !propertyInfo.GetSetMethod(true)?.IsPublic ?? false ) ||
+		           propertyInfo.GetIndexParameters().Length > 0;
+	    }
+
+	    public bool IncludeProperty(PropertyInfo property)
+	    {
+		    if (property.GetCustomAttributes(false).Any(a => a is XmlElementAttribute))
+			    return true;
+
+		    if (IsPrimitive)
+			    return false;
+
+			return property.PropertyType.GetProperties().ToList().Any(p =>
+			{
+				if (SkipPropertyInfo(p, p.GetGetMethod(true), ElementTypeLocator.Default.Locate(p.PropertyType)))
+					return false;
+				return IncludeProperty(p);
+			});
+	    }
 
         public bool IsPrimitive { get; private set; }
         public bool IsArray { get; private set; }

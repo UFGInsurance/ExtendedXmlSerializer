@@ -30,5 +30,47 @@ namespace ExtendedXmlSerialization.Test
   </TestClassWithObjectProperty>
 </ArrayOfTestClassWithObjectProperty>", obj);
         }
-    }
+
+	    [Fact]
+	    public void TestParentClassWithXmlElementAttribute()
+	    {
+		    var obj = new TestParentClassWithXmlElementAttribute
+		    {
+			    TestChildClass1 = new TestChildClass {Something = 123},
+			    TestChildClass2 = new TestChildClass {Something = 456}
+		    };
+
+			CheckSerializationAndDeserializationByXml(TestParentClassWithXmlElementAttributeXml, obj);
+	    }
+
+	    private const string TestParentClassWithXmlElementAttributeXml = @"<TestParentClassWithXmlElementAttribute type=""ExtendedXmlSerialization.Test.TestObject.TestParentClassWithXmlElementAttribute"">
+  <TestChildClass1 type=""ExtendedXmlSerialization.Test.TestObject.TestChildClass"">
+    <Something>123</Something>
+  </TestChildClass1>
+  <TestChildClass2 type=""ExtendedXmlSerialization.Test.TestObject.TestChildClass"">
+    <Something>456</Something>
+  </TestChildClass2>
+</TestParentClassWithXmlElementAttribute>";
+
+		[Fact]
+		public void TestParentClassWithoutXmlElementAttribute()
+		{
+			var obj = new TestParentClassWithoutXmlElementAttribute
+			{
+				TestChildClass1 = new TestChildClass { Something = 123 },
+				TestChildClass2 = new TestChildClass { Something = 456 }
+			};
+
+			CheckSerializationAndDeserializationByXml(TestParentClassWithoutXmlElementAttributeXml, obj);
+		}
+
+		private const string TestParentClassWithoutXmlElementAttributeXml = @"<TestParentClassWithoutXmlElementAttribute type=""ExtendedXmlSerialization.Test.TestObject.TestParentClassWithoutXmlElementAttribute"">
+  <TestChildClass1 type=""ExtendedXmlSerialization.Test.TestObject.TestChildClass"">
+    <Something>123</Something>
+  </TestChildClass1>
+  <TestChildClass2 type=""ExtendedXmlSerialization.Test.TestObject.TestChildClass"">
+    <Something>456</Something>
+  </TestChildClass2>
+</TestParentClassWithoutXmlElementAttribute>";
+	}
 }

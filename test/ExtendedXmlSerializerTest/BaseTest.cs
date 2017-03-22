@@ -74,7 +74,8 @@ namespace ExtendedXmlSerialization.Test
         public void CheckSerializationAndDeserializationByXml(string xml, object obj)
         {
             xml = ReplaceVariable(xml);
-            XmlAssert.AreEqual(xml, Serializer.Serialize(obj));
+            var stuff = Serializer.Serialize(obj);
+            XmlAssert.AreEqual(xml, stuff);
             var obj2 = Serializer.Deserialize(xml, obj.GetType());
             XmlAssert.AreEqual(xml, Serializer.Serialize(obj2));
         }

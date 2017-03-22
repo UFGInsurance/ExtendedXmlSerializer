@@ -28,6 +28,8 @@ namespace ExtendedXmlSerialization.Test.TestObject
 	{
 		[XmlElement]
 		public int Something { get; set; }
+
+        public TestChildClassInheritOverriddenProperty SomethingElse { get; set; }
 	}
 
     public abstract class TestAbstractBase

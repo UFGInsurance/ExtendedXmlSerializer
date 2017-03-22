@@ -76,7 +76,33 @@ namespace ExtendedXmlSerialization.Test
         [Fact]
         public void TestChildClassInheritOverriddenProperty()
         {
-            var obj = new TestChildClassInheritOverriddenProperty { Answer = "Test" };
+            //var obj = new TestParentClassWithoutXmlElementAttribute
+            //          {
+            //              TestChildClass1 =
+            //                  new TestChildClass
+            //                  {
+            //                      SomethingElse =
+            //                          new TestChildClassInheritOverriddenProperty
+            //                          {
+            //                              Answer =
+            //                                  "Test"
+            //                          }
+            //                  },
+            //              TestChildClass2 =
+            //                  new TestChildClass
+            //                  {
+            //                      SomethingElse =
+            //                          new TestChildClassInheritOverriddenProperty
+            //                          {
+            //                              Answer =
+            //                                  "Test 2"
+            //                          }
+            //                  },
+            //          };
+
+            var obj = new TestChildClass { SomethingElse = new TestChildClassInheritOverriddenProperty { Answer = "Test" } };
+
+            //var obj = new TestChildClassInheritOverriddenProperty { Answer = "Test" };
 
             CheckSerializationAndDeserializationByXml(TestChildClassInheritOverriddenPropertyXml, obj);
         }

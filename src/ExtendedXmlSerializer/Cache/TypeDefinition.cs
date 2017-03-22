@@ -210,7 +210,7 @@ namespace ExtendedXmlSerialization.Cache
 
 	    public bool IncludeProperty(PropertyInfo property)
 	    {
-		    if (property.GetCustomAttributes(false).Any(a => a is XmlElementAttribute))
+		    if (property.GetCustomAttributes(true).Any(a => a is XmlElementAttribute))
 			    return true;
 
 		    if (IsPrimitive)

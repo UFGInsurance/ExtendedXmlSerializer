@@ -72,5 +72,16 @@ namespace ExtendedXmlSerialization.Test
     <Something>456</Something>
   </TestChildClass2>
 </TestParentClassWithoutXmlElementAttribute>";
-	}
+
+        [Fact]
+        public void TestChildClassInheritOverriddenProperty()
+        {
+            var obj = new TestChildClassInheritOverriddenProperty { Answer = "Test" };
+
+            CheckSerializationAndDeserializationByXml(TestChildClassInheritOverriddenPropertyXml, obj);
+        }
+
+        private const string TestChildClassInheritOverriddenPropertyXml =
+            @"<TestChildClassInheritOverriddenProperty type=""ExtendedXmlSerialization.Test.TestObject.TestChildClassInheritOverriddenProperty""><Answer>Test</Answer></TestChildClassInheritOverriddenProperty>";
+    }
 }
